@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  subdomain: MyString
+  port_number: 1
+  api_key: MyString
+
+two:
+  subdomain: MyString
+  port_number: 1
+  api_key: MyString
