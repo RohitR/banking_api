@@ -1,5 +1,6 @@
 module IciciService
   API_END_POINT = 'https://apigwuat.icicibank.com:8443'
+  SPP_DOMAIN = "lvh.me:3000"
 
   EVENT_URL_MAP = {
     registration: '/api/Corporate/CIB/v1/Registration/Relyon',

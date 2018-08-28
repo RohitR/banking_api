@@ -1,6 +1,7 @@
 class Tenant < ApplicationRecord
   after_create :create_schema
   before_create :create_api_key
+  validates_uniqueness_of :api_key
 
   private
 

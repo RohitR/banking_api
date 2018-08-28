@@ -19,7 +19,7 @@ module IciciService
     end
 
     def data
-      http_response.parse(:json)
+      IciciService::Crypto.new(http_response).decrypt
     end
 
   end

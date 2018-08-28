@@ -15,11 +15,18 @@ Rails.application.routes.draw do
     namespace :icici do
       namespace :v1 do
 
+        resources :api , only: [] do
+          collection do
+            post :callback
+          end
+        end
+
         resources :bankings, only:[] do
           collection do
             post :register
             post :deregister
             post :statement
+            post :callback
           end
         end
 
@@ -30,6 +37,7 @@ Rails.application.routes.draw do
             post :verify_otp
             get :fetch_mobile
             get :transaction_status
+            get :balance_enquiry
           end
         end
 

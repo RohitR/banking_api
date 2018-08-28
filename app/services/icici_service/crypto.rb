@@ -1,32 +1,32 @@
 module IciciService
   class Crypto
 
-    PRIVATE_KEY_PATH = ''
-    ICCI_CERTIFICTE_FILE_PATH = ''
-    SPP_CERTIFICTE_FILE_PATH = ''
+    PRIVATE_KEY_PATH = '/Users/Rohith/Documents/keys/priv.pem'
+    ICCI_CERTIFICATE_FILE_PATH = ''
+    SPP_CERTIFICATE_FILE_PATH = '/Users/Rohith/Documents/keys/cert.pem'
 
     def initialize(params)
       @params = params
     end
 
     def decrypt
-      private_key.private_decrypt(decode_base64).parse(:json)
+      JSON.parse(private_key.private_decrypt(decode_base64))
     end
 
     def encrypt_for_icici
-      pub_key = public_key(ICCI_CERTIFICTE_FILE_PATH)
+      pub_key = public_key(ICCI_CERTIFICATE_FILE_PATH)
       encrypt(pub_key)
     end
 
     def encrypt_for_spp
-      pub_key = public_key(SPP_CERTIFICTE_FILE_PATH)
+      pub_key = public_key(SPP_CERTIFICATE_FILE_PATH)
       encrypt(pub_key)
     end
 
     private
 
     def encrypt(pub_key)
-      encrypted_data = public_key.public_encrypt(@params.to_json)
+      encrypted_data = pub_key.public_encrypt(@params.to_json)
       encode_base64(encrypted_data)
     end
 
